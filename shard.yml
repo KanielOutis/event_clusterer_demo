@@ -1,0 +1,28 @@
+name: event_clusterer_demo
+version: 0.1.0
+
+authors:
+  - mokan <olympspartan@gmail.com>
+
+targets:
+  event_clusterer_demo:
+    main: src/event_clusterer_demo.cr
+
+crystal: 1.0.0
+
+dependencies:
+  lucky:
+    github: luckyframework/lucky
+    version: ~> 0.27.0
+  authentic:
+    github: luckyframework/authentic
+    version: ~> 0.7.3
+  carbon:
+    github: luckyframework/carbon
+    version: ~> 0.1.4
+  dotenv:
+    github: gdotdesign/cr-dotenv
+    version: ~> 1.0.0
+  lucky_task:
+    github: luckyframework/lucky_task
+    version: ~> 0.1.0
