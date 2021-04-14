@@ -2,9 +2,9 @@ name: event_clusterer_demo CI
 
 on:
   push:
-    branches: "*"
+    branches: "stage"
   pull_request:
-    branches: "*"
+    branches: "stage"
 
 jobs:
   check-format:
