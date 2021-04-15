@@ -10,6 +10,15 @@ class Errors::Show < Lucky::ErrorAction
     error_json "Not found", status: 404
   end
 
+  def render(error : NamedTuple)
+    error_json \
+      message: error["message"], 
+      status: error["status"],
+      error: true,
+      status_code: error["status"]
+  end
+
+
   # When an InvalidOperationError is raised, show a helpful error with the
   # param that is invalid, and what was wrong with it.
   def render(error : Avram::InvalidOperationError)
@@ -34,6 +43,10 @@ class Errors::Show < Lucky::ErrorAction
 
   private def error_json(message : String, status : Int, details = nil, param = nil)
     json ErrorSerializer.new(message: message, details: details, param: param), status: status
+  end
+
+  private def error_json(message : String, status : Int, error : Bool, status_code : Int)
+    json ErrorSerializer.new(message: message, status_code: status_code, error: error), status: status
   end
 
   private def report(error : Exception) : Nil
